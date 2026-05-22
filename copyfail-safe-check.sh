@@ -373,6 +373,12 @@ echo
 echo "------------------------------------------------------------"
 echo -e "${BOLD}Machine-readable status:${NC} ${FINAL_STATUS}"
 echo -e "${BOLD}Read-only note:${NC} This script does not run an exploit and does not modify the system."
+echo
+echo -e "${BOLD}Cleanup note:${NC} This check file can be deleted after use."
+echo "If you cloned the repository only for this check, you can remove it with:"
+echo "  cd ~ && rm -rf copyfail-safe-check"
+echo "If you downloaded only this script, you can remove it with:"
+echo "  rm -f ./copyfail-safe-check.sh"
 echo "------------------------------------------------------------"
 
 if [ "${STRICT_EXIT_CODES:-0}" = "1" ]; then
