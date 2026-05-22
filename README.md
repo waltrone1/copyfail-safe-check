@@ -61,6 +61,8 @@ This only removes the check tool itself. It does not undo system updates, mitiga
 
 ## How to read the result
 
+If you are not sure what the output means, focus on the final result section at the end of the script output.
+
 ### All safe
 
 ```text
