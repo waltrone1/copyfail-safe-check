@@ -57,7 +57,7 @@ If you downloaded only the script, you can remove it afterwards:
 
     rm -f ./copyfail-safe-check.sh
 
-This only removes the check tool itself. It does not remove system updates, mitigations or security settings.
+This only removes the check tool itself. It does not undo system updates, mitigations or security settings.
 
 ## How to read the result
 
