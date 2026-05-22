@@ -24,16 +24,24 @@ Clone this repository:
 ```bash
 git clone https://github.com/waltrone1/copyfail-safe-check.git
 cd copyfail-safe-check
-chmod +x check-copyfail-safe.sh
-./check-copyfail-safe.sh
+chmod +x copyfail-safe-check.sh
+./copyfail-safe-check.sh
 ```
 
 Or download only the script:
 
 ```bash
-curl -O https://raw.githubusercontent.com/waltrone1/copyfail-safe-check/main/check-copyfail-safe.sh
-chmod +x check-copyfail-safe.sh
-./check-copyfail-safe.sh
+curl -O https://raw.githubusercontent.com/waltrone1/copyfail-safe-check/main/copyfail-safe-check.sh
+chmod +x copyfail-safe-check.sh
+./copyfail-safe-check.sh
+```
+
+If `curl` is not available:
+
+```bash
+wget https://raw.githubusercontent.com/waltrone1/copyfail-safe-check/main/copyfail-safe-check.sh
+chmod +x copyfail-safe-check.sh
+./copyfail-safe-check.sh
 ```
 
 ## How to read the result
@@ -45,7 +53,8 @@ ALL SAFE - NO ACTION REQUIRED
 Machine-readable status: OK_MITIGATED
 ```
 
-Nothing else is required right now.
+The system appears to be protected against the checked Copy Fail attack path.  
+No further action is required right now.
 
 ### Protected, but reboot required
 
@@ -54,16 +63,18 @@ PROTECTED NOW - REBOOT REQUIRED
 Machine-readable status: MITIGATED_REBOOT_REQUIRED
 ```
 
-Schedule a reboot and run the check again:
+The system appears to be protected for now, but a reboot is required so installed kernel or system updates become active.
+
+Recommended action:
 
 ```bash
 sudo reboot
 ```
 
-After reboot:
+After the reboot, run the check again:
 
 ```bash
-./check-copyfail-safe.sh
+./copyfail-safe-check.sh
 ```
 
 ### Action required
@@ -78,7 +89,14 @@ or:
 ACTION REQUIRED - MODULE IS LOADABLE
 ```
 
-Update the system, apply vendor-recommended mitigations if needed, reboot, and run the check again.
+The system should be reviewed and secured.
+
+Recommended action:
+
+- update kernel and relevant packages
+- apply vendor-recommended mitigations if needed
+- reboot if required
+- run this check again afterwards
 
 ### Manual review required
 
@@ -86,9 +104,14 @@ Update the system, apply vendor-recommended mitigations if needed, reboot, and r
 MANUAL REVIEW REQUIRED
 ```
 
+The script could not clearly determine the protection status.  
 Review the full output manually.
 
 ## References
+
+The following links are provided for background information only.
+
+Do **not** run public exploit code on production systems.
 
 - Copy Fail project page: https://copy.fail/
 - Ubuntu CVE page: https://ubuntu.com/security/CVE-2026-31431
@@ -97,7 +120,8 @@ Review the full output manually.
 
 ## Disclaimer
 
-This tool is a defensive helper for administrators.  
+This tool is a defensive helper for administrators.
+
 It does not guarantee that a system is fully secure. Always follow your Linux distribution vendor's official security advisories and patch guidance.
 
 ## Maintainer
