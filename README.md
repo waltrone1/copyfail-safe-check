@@ -44,18 +44,38 @@ chmod +x copyfail-safe-check.sh
 ./copyfail-safe-check.sh
 ```
 
+## Example results
+
+The script always shows a clear final result at the end of the output.
+
+### Critical / action required
+
+![Critical result](screenshots/copyfail-safe-check-critical.png)
+
+### Protected, but reboot required
+
+![Reboot required result](screenshots/copyfail-safe-check-reboot.png)
+
+### All safe
+
+![OK result](screenshots/copyfail-safe-check-OK.png)
+
 ## Cleanup after the check
 
 The script is read-only and does not change the system.
 
 If you only cloned this repository to run the check, you can remove it afterwards:
 
-    cd ~
-    rm -rf copyfail-safe-check
+```bash
+cd ~
+rm -rf copyfail-safe-check
+```
 
 If you downloaded only the script, you can remove it afterwards:
 
-    rm -f ./copyfail-safe-check.sh
+```bash
+rm -f ./copyfail-safe-check.sh
+```
 
 This only removes the check tool itself. It does not undo system updates, mitigations or security settings.
 
