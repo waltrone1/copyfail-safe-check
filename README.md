@@ -44,6 +44,21 @@ chmod +x copyfail-safe-check.sh
 ./copyfail-safe-check.sh
 ```
 
+## Cleanup after the check
+
+The script is read-only and does not change the system.
+
+If you only cloned this repository to run the check, you can remove it afterwards:
+
+    cd ~
+    rm -rf copyfail-safe-check
+
+If you downloaded only the script, you can remove it afterwards:
+
+    rm -f ./copyfail-safe-check.sh
+
+This only removes the check tool itself. It does not remove system updates, mitigations or security settings.
+
 ## How to read the result
 
 ### All safe
